@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
+/* dark modu sistem temasına göre değil, html'deki "dark" class'ına göre çalıştır */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* açık tema */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --muted: #6b6b66;
+  --border: #e4e4e0;
+  --accent: #e11d1d; /* kırmızı */
 }
 
+/* koyu tema (varsayılan olan bu) */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #9a9a94;
+  --border: #26262a;
+  --accent: #e11d1d; /* kırmızı, iki temada aynı */
+}
+
+/* bg-background, text-foreground gibi tailwind class'ları için renkleri bağla */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif; /* TODO: Geist'e geçeceksem burayı değiştir */
+}
+
+/* arka plan: silik ızgara, ortadan kenarlara doğru kaybolur */
+.arka-izgara {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
+  opacity: 0.6;
+}
+
+/* arka plan: yavaşça kayan kırmızı ışıklar */
+@keyframes isik-kay-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(8vw, 6vh, 0) scale(1.15); }
+}
+@keyframes isik-kay-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.1); }
+  50% { transform: translate3d(-8vw, -5vh, 0) scale(0.95); }
+}
+.arka-isik-a { animation: isik-kay-a 20s ease-in-out infinite; }
+.arka-isik-b { animation: isik-kay-b 26s ease-in-out infinite; }
+
+/* teknoloji şeridi: sola doğru kayar, kenarlarda silinir */
+@keyframes kayan-seri {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.kayan-seri { animation: kayan-seri 35s linear infinite; }
+.kayan-alan {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+/* üstüne gelince dursun */
+.kayan-alan:hover .kayan-seri { animation-play-state: paused; }
+
+/* hareketi sevmeyenler için animasyonları kapat */
+@media (prefers-reduced-motion: reduce) {
+  .arka-isik-a,
+  .arka-isik-b,
+  .kayan-seri {
+    animation: none;
+  }
 }
