@@ -17,7 +17,7 @@ const ozet =
 
 const iletisim = [
   { k: "okul", v: "Namık Kemal Üniversitesi" },
-  { k: "e-posta", v: "@gmail.com", href: "mailto:@gmail.com" },
+  { k: "e-posta", v: "gmail.com", href: "mailto:contact@baransural.com" },
   { k: "github", v: "github.com/baransural", href: "https://github.com/baransural" },
   {
     k: "linkedin",
@@ -131,6 +131,7 @@ export default function Ozgecmis() {
         <Bolum no="01" baslik="Özet">
           <p className="leading-7 text-muted">{ozet}</p>
 
+
           <dl className="mt-8 border-t border-border font-mono text-sm">
             {iletisim.map((i) => (
               <div key={i.k} className="flex justify-between gap-6 border-b border-border py-3">
@@ -153,6 +154,32 @@ export default function Ozgecmis() {
             ))}
           </dl>
         </Bolum>
+          {/* CV İndir / Görüntüle Butonu */}
+          <div className="mt-6 flex justify-end">
+            <a
+              href="/BScv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-border bg-accent/10 px-6 py-6 font-mono text-xs text-accent transition hover:border-accent hover:bg-accent/20"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              CV / Özgeçmiş Gör
+            </a>
+          </div>
 
         <Bolum no="02" baslik="Deneyim">
           <ZamanAkisi kayitlar={deneyim} />
