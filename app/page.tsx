@@ -67,8 +67,8 @@ function ProfilKutusu({ className = "" }: { className?: string }) {
 const iletisimKutulari = [
   {
     etiket: "e-posta",
-    deger: "baransural3@gmail.com",
-    href: "mailto:baransural3@gmail.com",
+    deger: "contact@baransural.com",
+    href: "mailto:contact@baransural.com",
     dis: false,
   },
   {
@@ -170,7 +170,7 @@ export default function Home() {
 
             {/* ana buton: beyaz zemin, kırmızı yazı */}
             <a
-              href="mailto:baransural3@gmail.com"
+              href="mailto:contact@baransural.com"
               className="mt-10 inline-block bg-white px-8 py-4 text-xs font-bold uppercase tracking-widest text-accent transition hover:bg-white/90"
             >
               E-posta gönder →
