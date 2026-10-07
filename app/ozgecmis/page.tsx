@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const unvan = "Bilgisayar Mühendisliği Öğrencisi";
 
 const ozet =
-  "Namık Kemal Üniversitesi'nde Bilgisayar Mühendisliği 3. sınıf öğrencisiyim. Oyun geliştirme ve web başta olmak üzere her alanda öğrenmeye ve üretmeye açığım. Hotan Games'te stajyer olarak çalışıyor, okulumuzdaki otonom araç projesinde yer alıyorum.";
+  "Namık Kemal Üniversitesi'nde Bilgisayar Mühendisliği öğrencisiyim. Oyun geliştirme ve web geliştirme alanlarına özel ilgim var; Next.js, React.js ve modern web teknolojileriyle web siteleri, Unity ile oyun projeleri geliştirdim. Şu anda becerilerimi gerçek projelerde kullanabileceğim ve sektörden deneyim kazanabileceğim bir yazılım stajı arıyorum.";
 
 const iletisim = [
   { k: "okul", v: "Namık Kemal Üniversitesi" },
@@ -29,33 +29,52 @@ const iletisim = [
 const deneyim = [
   {
     donem: "Devam ediyor",
-    baslik: "Stajyer",
+    baslik: "Web Geliştirme Stajyeri",
     kurum: "Hotan Games",
     aciklama:
-      "Hotan Games'te stajyer olarak düzenli şekilde çalışmaya devam ediyorum. Şirketin web sitesini geliştirdim.",
+      "Hotan Games'in resmi web sitesini tasarladım ve geliştirdim. Arayüzü React.js, Next.js ve modern web teknolojileriyle kurdum; sayfa düzenini, mobil uyumu ve kullanıcı deneyimini sürekli iyileştiriyorum.",
   },
   {
     donem: "Devam ediyor",
     baslik: "Ekip Üyesi",
     kurum: "Otonom Araç Projesi — Namık Kemal Üniversitesi",
     aciklama:
-      "Üniversitemizdeki otonom araç projesinde yer alıyorum. Çalışmanın ayrıntıları yakında paylaşılacak.",
+      "Üniversitemizin otonom araç ekibinde yazılım geliştirici olarak görev alıyorum. Otonom çalışma için yazılım entegrasyonu ve kontrol sistemleri üzerinde çalışıyorum. Python ve C# kullanıyorum.",
+  },
+  {
+    donem: "Süreklidir",
+    baslik: "Oyun Geliştirme Projeleri",
+    kurum: "Unity, C#",
+    aciklama:
+      "Oynanış programlaması ve oyun mekanikleri üzerine oyun projeleri geliştirdim. Unity motorunda, oyun tasarımında ve problem çözmede uygulamalı deneyim kazandım.",
   },
 ];
 
 const egitim = [
   {
-    donem: "Devam ediyor",
+    donem: "2023 – 2028 (beklenen)",
     baslik: "Bilgisayar Mühendisliği (Lisans)",
     kurum: "Namık Kemal Üniversitesi",
-    aciklama: "3. sınıf öğrencisi.",
+    aciklama:
+      "3. sınıf öğrencisi. İlgili dersler: Veri Yapıları, Algoritmalar, Nesne Yönelimli Programlama, Veritabanı Sistemleri.",
   },
 ];
 
 const yetenekler = [
-  { grup: "Programlama", liste: ["Python", "C#", "TypeScript"] },
-  { grup: "Oyun", liste: ["Unity"] },
-  { grup: "Web", liste: ["Next.js", "NestJS", "PostgreSQL", "Tailwind CSS"] },
+  { grup: "Programlama dilleri", liste: ["Python", "C#", "TypeScript", "JavaScript"] },
+  {
+    grup: "Web geliştirme",
+    liste: ["Next.js", "React.js", "NestJS", "PostgreSQL", "Tailwind CSS", "HTML", "CSS"],
+  },
+  {
+    grup: "Oyun geliştirme",
+    liste: ["Unity", "Oynanış programlama", "Oyun mekanikleri"],
+  },
+  { grup: "Diller", liste: ["Türkçe (ana dil)", "İngilizce (orta seviye)"] },
+  {
+    grup: "İlgi alanları",
+    liste: ["Oyun geliştirme", "Web geliştirme", "Otonom sistemler", "Teknoloji"],
+  },
 ];
 
 type Kayit = {
@@ -114,7 +133,7 @@ export default function Ozgecmis() {
           href="/"
           className="font-mono text-sm text-muted transition hover:text-accent"
         >
-          ← ana sayfa
+          ← Ana sayfa
         </Link>
 
         {/* üst bilgi: ortada isim ve unvan */}
@@ -130,7 +149,6 @@ export default function Ozgecmis() {
 
         <Bolum no="01" baslik="Özet">
           <p className="leading-7 text-muted">{ozet}</p>
-
 
           <dl className="mt-8 border-t border-border font-mono text-sm">
             {iletisim.map((i) => (
@@ -153,33 +171,34 @@ export default function Ozgecmis() {
               </div>
             ))}
           </dl>
+
+ {/* CV butonu: PDF'i yeni sekmede açar */}
+<div className="mt-6 flex justify-end">
+  <a
+    href="/BScv.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 border border-border bg-accent/10 px-6 py-3 font-mono text-xs text-accent transition hover:border-accent hover:bg-accent/20"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+    CV Görüntüle
+  </a>
+</div>
         </Bolum>
-          {/* CV İndir / Görüntüle Butonu */}
-          <div className="mt-6 flex justify-end">
-            <a
-              href="/BScv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-border bg-accent/10 px-6 py-6 font-mono text-xs text-accent transition hover:border-accent hover:bg-accent/20"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              CV / Özgeçmiş Gör
-            </a>
-          </div>
 
         <Bolum no="02" baslik="Deneyim">
           <ZamanAkisi kayitlar={deneyim} />
