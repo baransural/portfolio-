@@ -17,7 +17,7 @@ const ozet =
 
 const iletisim = [
   { k: "okul", v: "Namık Kemal Üniversitesi" },
-  { k: "e-posta", v: "gmail.com", href: "mailto:contact@baransural.com" },
+  { k: "e-posta", v: "contact@baransural.com", href: "mailto:contact@baransural.com" },
   { k: "github", v: "github.com/baransural", href: "https://github.com/baransural" },
   {
     k: "linkedin",
