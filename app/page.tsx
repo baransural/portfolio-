@@ -157,14 +157,14 @@ export default function Home() {
           />
 
           <div className="relative">
-            <p className="font-mono text-sm text-white/80">● iletişim</p>
+            <p className="font-mono text-sm text-white/80">● İletişim</p>
             <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-6xl">
               Birlikte bir şeyler
               <br />
               üretelim.
             </h2>
             <p className="mx-auto mt-6 max-w-lg leading-7 text-white/85">
-              Bir proje fikrin, staj ya da iş birliği teklifin varsa yaz. En
+              Bir proje fikrin, staj ya da iş birliği teklifiniz varsa yazınız. En
               kısa sürede dönerim.
             </p>
 
