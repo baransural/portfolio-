@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "devicon/devicon.min.css";
 /* dark modu sistem temasına göre değil, html'deki "dark" class'ına göre çalıştır */
 @custom-variant dark (&:where(.dark, .dark *));
 

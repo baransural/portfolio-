@@ -1,35 +1,40 @@
-// ekranın altında kayan teknoloji şeridi
-// TODO: listeyi istediğim gibi değiştireceğim
 const teknolojiler = [
-  "Python",
-  "C#",
-  "Unity",
-  "TypeScript",
-  "Next.js",
-  "NestJS",
-  "PostgreSQL",
-  "Tailwind CSS",
-  "Docker",
+  { isim: "Python", logo: "devicon-python-plain colored" },
+  { isim: "C#", logo: "devicon-csharp-plain colored" },
+  { isim: "Unity", logo: "devicon-unity-plain" },
+  { isim: "TypeScript", logo: "devicon-typescript-plain colored" },
+  { isim: "Next.js", logo: "devicon-nextjs-plain" },
+  { isim: "NestJS", logo: "devicon-nestjs-plain colored" },
+  { isim: "PostgreSQL", logo: "devicon-postgresql-plain colored" },
+  { isim: "Tailwind CSS", logo: "devicon-tailwindcss-original colored" },
+  { isim: "Docker", logo: "devicon-docker-plain colored" },
 ];
 
 export function TechMarquee() {
-  // liste iki kez yazılıyor ki şerit kesintisiz dönsün
   const liste = [...teknolojiler, ...teknolojiler];
 
   return (
-    <section aria-label="Kullandığım teknolojiler" className="border-y border-border py-14">
-      <p className="text-center font-mono text-sm text-accent">Kullandığım teknolojiler</p>
+    <section
+      aria-label="Kullandığım teknolojiler"
+      className="border-y border-border py-5"
+    >
+      <p className="text-center font-mono text-lg font-bold tracking-wider text-accent sm:text-xl">
+        KULLANDIĞIM TEKNOLOJİLER
+      </p>
 
       <div className="kayan-alan mt-8 overflow-hidden">
         <ul className="kayan-seri flex w-max">
           {liste.map((t, i) => (
             <li
-              key={`${t}-${i}`}
-              // ikinci kopya ekran okuyucularda tekrar okunmasın
+              key={`${t.isim}-${i}`}
               aria-hidden={i >= teknolojiler.length}
-              className="mr-4 border border-border px-6 py-3 font-mono text-sm text-muted transition hover:border-accent hover:text-foreground"
+              title={t.isim}
+              className="mr-6 flex h-16 w-20 items-center justify-center transition-transform hover:scale-110 sm:mr-8 sm:h-20 sm:w-24"
             >
-              {t}
+              <i
+                className={`${t.logo} text-3xl sm:text-4xl`}
+                aria-hidden="true"
+              />
             </li>
           ))}
         </ul>

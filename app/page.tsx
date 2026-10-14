@@ -157,8 +157,8 @@ export default function Home() {
           />
 
           <div className="relative">
-            <p className="font-mono text-sm text-white/80">● İletişim</p>
-            <h2 className="mt-4 text-4xl font-black tracking-tight sm:text-6xl">
+            <p className="font-mono text-lg font-bold text-white/80">● İLETİŞİM</p>
+            <h2 className="mt-9 text-4xl font-black tracking-tight sm:text-6xl">
               Birlikte bir şeyler
               <br />
               üretelim.
