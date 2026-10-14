@@ -81,4 +81,10 @@ body {
   .kayan-seri {
     animation: none;
   }
+  
+}
+/* Metin seçimi rengi */
+::selection {
+  background-color: #e11d1d;
+  color: #080808;
 }
